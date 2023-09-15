@@ -10,11 +10,12 @@ import models
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """HBNB class"""
     prompt = '(hbnb) '
-    classes = {'BaseModel': BaseModel}
+    classes = {'BaseModel': BaseModel, 'User': User}
 
 
     def do_EOF(self, line):

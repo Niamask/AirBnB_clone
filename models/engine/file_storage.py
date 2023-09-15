@@ -3,6 +3,7 @@
 
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage:
     """Class that almacenates models of AirBnB clone"""
