@@ -5,7 +5,9 @@ import uuid
 from uuid import uuid4
 from datetime import datetime
 
+
 class BaseModel:
+
     """
     Defines all common attributes and methods
     for other classes
@@ -42,10 +44,10 @@ class BaseModel:
         dd["created_at"] = self.created_at
         return dd
 
-
     def __str__(self):
         """Return string representation for an object"""
-        return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__)
+        return '[{}] ({}) {}'.format(
+                self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Updates instance attribute updated_at with current datetime"""
