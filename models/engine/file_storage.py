@@ -40,6 +40,6 @@ class FileStorage:
         except Exception:
             pass
 
-    def update_obejts(self, ob):
+    def update_object(self, ob):
         FileStorage.__objects = ob
         self.save()
