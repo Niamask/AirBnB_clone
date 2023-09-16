@@ -17,13 +17,13 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """HBNB class"""
     prompt = '(hbnb) '
     classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
                'Place': Place, 'Amenity': Amenity, 'Review': Review,
                'State': State}
-
 
     def do_EOF(self, line):
         """end-of-file cmd: exit the program"""
@@ -110,7 +110,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-    
     def do_update(self, classNam):
         """Updates an instance based on the class name"""
 
@@ -141,7 +140,6 @@ class HBNBCommand(cmd.Cmd):
         id = classNam[0] + "." + classNam[1]
         objs[id][attr] = value
         models.storage.update_obejts(objs)
-
 
 
 if __name__ == '__main__':
