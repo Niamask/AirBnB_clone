@@ -12,6 +12,8 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         """Constructor of a BaseModel"""
+        self.my_number = None
+        self.name = None
         self.updated_at = datetime.now()
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
@@ -43,7 +45,7 @@ class BaseModel:
 
     def __str__(self):
         """Return string representation for an object"""
-        return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.dict())
+        return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Updates instance attribute updated_at with current datetime"""
@@ -52,9 +54,12 @@ class BaseModel:
 
     def to_dict(self):
         """Returns dictionary containing all keys/values"""
-        new_dict = self.dict().copy()
+        new_dict = {}
+        new_dict["my_number"] = self.__dict__["my_number"]
+        new_dict["name"] = self.__dict__["name"]
         new_dict['__class__'] = self.__class__.__name__
+        new_dict["updated_at"] = self.updated_at.isoformat()
+        new_dict["id"] = self.__dict__["id"]
         new_dict['created_at'] = self.created_at.isoformat()
-        new_dict['updated_at'] = self.updated_at.isoformat()
 
         return new_dict
