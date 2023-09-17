@@ -1,10 +1,12 @@
 # AirBnB Clone - The Console
+
 ![alt text](hbnb.png "Title")
+
 ## Table of contents:
-* [Description](Description)
-* [Installation](Installation)
-* [Available Command](Available-Command)
-* [Authors](Authors)
+* [Description](#Description)
+* [Installation](#Installation)
+* [Available Command](#Available-Command)
+* [Authors](#Authors)
 
 
 ## Description:
