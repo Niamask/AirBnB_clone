@@ -5,6 +5,7 @@
 ## Table of contents:
 * [Description](#Description)
 * [Installation](#Installation)
+* [Execution](#Execution)
 * [Available Command](#Available-Command)
 * [Authors](#Authors)
 
@@ -18,6 +19,48 @@ The goal is to build a full web application: the AirBnB clone.
 - Access AirBnb directory: cd AirBnB_clone
 - Run hbnb(interactively): ./console and enter command
 - Run hbnb(non-interactively): echo "<command>" | ./console.py
+
+## Execution
+
+In interactive mode
+
+```bash
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb)
+(hbnb)
+(hbnb) quit
+$
+```
+
+in Non-interactive mode
+
+```bash
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+```
 
 ## Available Command:
 - quit and EOF to exit the program
