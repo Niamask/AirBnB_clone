@@ -1,66 +1,53 @@
 #!/usr/bin/python3
-"""
-    Test Case For Amenity Model and its Test
-"""
-from models import BaseModel
-from models import Amenity
+"""Unittest module for the Amenity Class."""
+
 import unittest
-import inspect
-import time
 from datetime import datetime
-import pep8 as pcs
-from unittest import mock
-import models
+import time
+from models.amenity import Amenity
+import re
+import json
+from models.engine.file_storage import FileStorage
+import os
+from models import storage
+from models.base_model import BaseModel
 
 
 class TestAmenity(unittest.TestCase):
-    """
-        unitesst for user class
-    """
-    def issub_class(self):
-        """
-            test if Amenity class is sub class of base model
-        """
-        insta = Amenity()
-        self.assertIsInstance(insta, BaseModel)
-        self.assertTrue(hasattr(insta, "id"))
-        self.assertTrue(hasattr(insta, "created_at"))
-        self.assertTrue(hasattr(insta, "update_at"))
 
-    def test_name(self):
-        """
-            test class atribute name
-        """
-        insta = Amenity()
-        self.assertTrue(hasattr(insta, "name"))
-        self.assertEqual(insta.name, "")
+    """Test Cases for the Amenity class."""
 
-    def test_to_dictAmenity(self):
-        """
-            test to dict method with Amenity and the type
-            and content
-        """
-        insta = Amenity()
-        dict_cont = insta.to_dict()
-        self.assertEqual(type(dict_cont), dict)
-        for attr in insta.__dict__:
-            self.assertTrue(attr in dict_cont)
-            self.assertTrue("__class__" in dict_cont)
+    def setUp(self):
+        """Sets up test methods."""
+        pass
 
-    def test_dict_value(self):
-        """
-            test the returned dictionar values
-        """
-        time_format = "%Y-%m-%dT%H:%M:%S.%f"
-        insta = Amenity()
-        dict_con = insta.to_dict()
-        self.assertEqual(dict_con["__class__"], "Amenity")
-        self.assertEqual(type(dict_con["created_at"]), str)
-        self.assertEqual(type(dict_con["updated_at"]), str)
-        self.assertEqual(
-                            dict_con["created_at"],
-                            insta.created_at.strftime(time_format)
-                                        )
-        self.assertEqual(
-                            dict_con["updated_at"],
-                            insta.updated_at.strftime(time_format))
+    def tearDown(self):
+        """Tears down test methods."""
+        self.resetStorage()
+        pass
+
+    def resetStorage(self):
+        """Resets FileStorage data."""
+        FileStorage._FileStorage__objects = {}
+        if os.path.isfile(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
+
+    def test_8_instantiation(self):
+        """Tests instantiation of Amenity class."""
+
+        b = Amenity()
+        self.assertEqual(str(type(b)), "<class 'models.amenity.Amenity'>")
+        self.assertIsInstance(b, Amenity)
+        self.assertTrue(issubclass(type(b), BaseModel))
+
+    def test_8_attributes(self):
+        """Tests the attributes of Amenity class."""
+        attributes = storage.attributes()["Amenity"]
+        o = Amenity()
+        for k, v in attributes.items():
+            self.assertTrue(hasattr(o, k))
+            self.assertEqual(type(getattr(o, k, None)), v)
+
+
+if __name__ == "__main__":
+    unittest.main()
