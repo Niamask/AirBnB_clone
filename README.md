@@ -1,6 +1,6 @@
 # AirBnB Clone - The Console
 
-![alt text](hbnb.png "Title")
+![hbnb](https://github.com/Niamask/AirBnB_clone/assets/94907249/18d109d9-023b-48e8-a64f-328242882f07)
 
 ## Table of contents:
 * [Description](#Description)
