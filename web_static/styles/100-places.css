@@ -1,0 +1,136 @@
+/********** Places **********/
+
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.places h1 {
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+article {
+  width: 390px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ff5a5f;
+  border-radius: 4px;
+  position: relative;
+}
+
+article h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.price_by_night {
+  color: #ff5a5f;
+  border: #ff5a5f 4px solid;
+  border-radius: 50%;
+  min-width: 60px;
+  height: 60px;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+  /* padding: 15px 5px; */
+}
+
+.information {
+  height: 80px;
+  border-top: #dddddd 1px solid;
+  border-bottom: #dddddd 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+  width: 100px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  vertical-align: bottom;
+  line-height: 135px;
+}
+.max_guest {
+  background-image: url(../images/guests.png);
+}
+
+.number_rooms {
+  background-image: url(../images/bed.png);
+}
+
+.number_bathrooms {
+  background-image: url(../images/bath.png);
+}
+
+.user,
+.description {
+  padding-top: 15px;
+}
+
+/******  amenities & reviews  ******/
+
+article .amenities,
+.reviews {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.places .amenities h2,
+.reviews h2 {
+  font-size: 16px;
+  border-bottom: #dddddd 1px solid;
+  text-align: left;
+  padding-bottom: 10px;
+  height: 30px;
+}
+
+.places .amenities ul,
+.reviews ul {
+  list-style: none;
+}
+
+.places .amenities ul li {
+  margin-top: 10px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 20px; /* or background-size: contain; */
+  padding-left: 30px;
+}
+
+.tv {
+  background-image: url(../images/tv.png);
+}
+
+.wifi {
+  background-image: url(../images/wifi.png);
+}
+
+.pet {
+  background-image: url(../images/pet.png);
+}
+
+.reviews h3 {
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+p {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
